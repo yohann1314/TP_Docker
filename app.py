@@ -28,4 +28,8 @@ def index():
 
 
 if __name__ == "__main__":
+<<<<<<< HEAD
 app.run(debug=True, host="0.0.0.0")
+=======
+    app.run(debug=True, host="0.0.0.0")
+>>>>>>> f50be6dd0c45250e614e61a9440c7efd35137e9f
