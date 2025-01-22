@@ -5,10 +5,13 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copier les fichiers de l'application
-COPY . .
+COPY ./requirements.txt ./
 
 # Installer les dépendances
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+# Copier les fichiers de l'application
+COPY ./app.py ./
 
 # Exposer le port (par exemple, 5000 pour Flask)
 EXPOSE 5000

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .error {
+            color: red;
+        }
+        .result {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calcul</h1>
+        <form method="POST">
+            <div>
+                <label for="num1">Nombre 1 :</label>
+                <input type="text" id="num1" name="num1" required>
+            </div>
+            <div>
+                <label for="num2">Nombre 2 :</label>
+                <input type="text" id="num2" name="num2" required>
+            </div>
+            <div>
+                <label for="operation">Opération :</label>
+                <select id="operation" name="operation">
+                    <option value="add">Addition</option>
+                    <option value="subtract">Soustraction</option>
+                </select>
+            </div>
+            <button type="submit">Calculer</button>
+        </form>
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+        {% if result is not none %}
+        <p class="result">Résultat: {{ result }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
