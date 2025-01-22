@@ -37,6 +37,11 @@ jobs:
           key: ${{ runner.os }}-docker-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-docker-
+
+      # Test unitaire de l'application app.py
+      - name: Run unit tests
+        run: |
+          python -m unittest discover -s tests -p '*_test.py'
       # Construction et push de l'image Docker
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
